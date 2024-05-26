@@ -32,8 +32,34 @@ main.appendChild(div_new);
 
 returnReviews(APILINK);
 
+// function returnReviews(url) {
+//     fetch(url + "movie/" + movieId).then(res => res.json()).then(function (data) {
+//         console.log(data);
+//         data.forEach(review => {
+//             const div_card = document.createElement("div");
+//             div_card.innerHTML = `
+//                 <div class="row">
+//                     <div class="column">
+//                     <div class="card" id="${review._id}">
+//                         <p><strong>Review: </strong>${review.review}</p>
+//                         <p><strong>User: </strong>${review.user}</p>
+//                         <p><a href="#"onclick="editReview('${review._id}','${review.review}', '${review.user}')">✏️</a> <a href="#" onclick="deleteReview('${review._id}')">🗑</a></p>
+//                     </div>
+//                     </div>
+//                 </div>
+//             `;
+//             main.appendChild(div_card);
+//         });
+//     });
+// }
+
 function returnReviews(url) {
-    fetch(url + "movie/" + movieId).then(res => res.json()).then(function (data) {
+    fetch(url + "movie/" + movieId).then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return res.json();
+    }).then(data => {
         console.log(data);
         data.forEach(review => {
             const div_card = document.createElement("div");
@@ -43,13 +69,15 @@ function returnReviews(url) {
                     <div class="card" id="${review._id}">
                         <p><strong>Review: </strong>${review.review}</p>
                         <p><strong>User: </strong>${review.user}</p>
-                        <p><a href="#"onclick="editReview('${review._id}','${review.review}', '${review.user}')">✏️</a> <a href="#" onclick="deleteReview('${review._id}')">🗑</a></p>
+                        <p><a href="#" onclick="editReview('${review._id}', '${review.review}', '${review.user}')">✏️</a> <a href="#" onclick="deleteReview('${review._id}')">🗑</a></p>
                     </div>
                     </div>
                 </div>
-            `
+            `;
             main.appendChild(div_card);
         });
+    }).catch(error => {
+        console.error('Fetch error:', error);
     });
 }
 
