@@ -56,29 +56,33 @@ returnReviews(APILINK);
 function returnReviews(url) {
     fetch(url + "movie/" + movieId)
         .then(res => {
-            console.log('Fetch response:', res);
             if (!res.ok) {
                 throw new Error('Network response was not ok: ' + res.statusText);
             }
-            return res.json();
+            return res.text(); // JSONではなくテキストとしてレスポンスを取得
         })
         .then(data => {
-            console.log('Fetched data:', data);
-            data.forEach(review => {
-                const div_card = document.createElement("div");
-                div_card.innerHTML = `
-                    <div class="row">
-                        <div class="column">
-                        <div class="card" id="${review._id}">
-                            <p><strong>Review: </strong>${review.review}</p>
-                            <p><strong>User: </strong>${review.user}</p>
-                            <p><a href="#" onclick="editReview('${review._id}','${review.review}', '${review.user}')">✏️</a> <a href="#" onclick="deleteReview('${review._id}')">🗑</a></p>
+            console.log('Fetch response:', data); // レスポンスの内容をコンソールに出力
+            try {
+                const jsonData = JSON.parse(data); // テキストをJSONにパース
+                jsonData.forEach(review => {
+                    const div_card = document.createElement("div");
+                    div_card.innerHTML = `
+                        <div class="row">
+                            <div class="column">
+                            <div class="card" id="${review._id}">
+                                <p><strong>Review: </strong>${review.review}</p>
+                                <p><strong>User: </strong>${review.user}</p>
+                                <p><a href="#" onclick="editReview('${review._id}','${review.review}', '${review.user}')">✏️</a> <a href="#" onclick="deleteReview('${review._id}')">🗑</a></p>
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                `;
-                main.appendChild(div_card);
-            });
+                    `;
+                    main.appendChild(div_card);
+                });
+            } catch (error) {
+                console.error('Error parsing JSON:', error);
+            }
         })
         .catch(error => {
             console.error('Fetch error:', error.message);
