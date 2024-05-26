@@ -4,7 +4,7 @@ import ReviewsDAO from "./dao/reviewsDAO.js" // dao: data access object
 import dotenv from "dotenv";
 
 // Load environment variables from the .env file
-dotenv.config();
+dotenv.config()
 
 const MongoClient = mongodb.MongoClient
 const mongo_username = process.env.MONGO_USERNAME
