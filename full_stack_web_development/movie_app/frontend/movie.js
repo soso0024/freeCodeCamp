@@ -2,7 +2,7 @@ const url = new URL(location.href);
 const movieId = url.searchParams.get("id")
 const movieTitle = url.searchParams.get("title")
 
-const APILINK = 'http://127.0.0.1:4040/api/v1/reviews/';
+const APILINK = 'https://a6b9-45-84-136-7.ngrok-free.app/api/v1/reviews/';
 
 const main = document.getElementById("section");
 const title = document.getElementById("title");

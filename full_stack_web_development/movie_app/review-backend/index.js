@@ -2,7 +2,6 @@ import app from "./server.js"
 import mongodb from "mongodb"
 import ReviewsDAO from "./dao/reviewsDAO.js" // dao: data access object
 import dotenv from "dotenv";
-import cors from 'cors';
 
 // Load environment variables from the .env file
 dotenv.config()
@@ -13,8 +12,6 @@ const mongo_password = process.env.MONGO_PASSWORD
 const uri = `mongodb+srv://${mongo_username}:${mongo_password}@cluster0.kldy9nz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
 const port = 8000
-
-app.use(cors());
 
 MongoClient.connect(
     uri,
