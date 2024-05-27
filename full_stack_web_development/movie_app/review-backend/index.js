@@ -17,7 +17,7 @@ MongoClient.connect(
     uri,
     {
         maxPoolSize: 50,    // The maximum number of connections in the connection pool
-        timeoutMS: 2500,   // 2500ms = 2.5s, The time in milliseconds to wait for the write concern to finish
+        wtimeoutMS: 2500,   // 2500ms = 2.5s, The time in milliseconds to wait for the write concern to finish
         useNewUrlParser: true,  // The MongoDB Node.js driver rewrote the tool it uses to parse MongoDB connection strings
     }
 )
