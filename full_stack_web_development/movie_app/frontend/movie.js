@@ -2,8 +2,8 @@ const url = new URL(location.href);
 const movieId = url.searchParams.get("id")
 const movieTitle = url.searchParams.get("title")
 
-// const APILINK = 'http://localhost:8000/api/v1/reviews/';
-const APILINK = 'https://backend-five-puce-18.vercel.app/api/v1/reviews/';
+const APILINK = 'http://localhost:3000/api/v1/reviews/';
+// const APILINK = 'https://backend-five-puce-18.vercel.app/api/v1/reviews/';
 
 const main = document.getElementById("section");
 const title = document.getElementById("title");
