@@ -80,6 +80,7 @@ export default class ReviewsController {
                 res.status(404).json({ error: "Not found" })
                 return
             }
+            console.log(reviews)
             res.json(reviews)
         } catch (e) {
             console.log(`api, ${e}`)

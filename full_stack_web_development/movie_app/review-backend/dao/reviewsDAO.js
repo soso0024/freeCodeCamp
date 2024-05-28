@@ -23,7 +23,7 @@ export default class ReviewsDAO {
                 user: user,
                 review: review,
             }
-            console.log("adding")
+            console.log("adding!")
             return await reviews.insertOne(reviewDoc)
         } catch (e) {
             console.error(`Unable to post review: ${e}`)
@@ -33,6 +33,7 @@ export default class ReviewsDAO {
 
     static async getReview(reviewId) {
         try {
+            console.log("getting reviewId: " + reviewId)
             return await reviews.findOne({ _id: ObjectID(reviewId) })
         } catch (e) {
             console.error(`Unable to get review: ${e}`)
