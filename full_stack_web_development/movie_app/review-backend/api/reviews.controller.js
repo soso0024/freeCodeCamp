@@ -75,6 +75,7 @@ export default class ReviewsController {
     static async apiGetReviews(req, res, next) {
         try {
             let id = req.params.id || {}
+            console.log('id', id);
             let reviews = await ReviewsDAO.getReviewsByMovieId(id)
             if (!reviews) {
                 res.status(404).json({ error: "Not found" })
