@@ -6,7 +6,7 @@ export default class ReviewsController {
             const movieId = parseInt(req.body.movieId)
             const review = req.body.review
             const user = req.body.user
-            console.log('movieId', movieId)
+            console.log('movieId in reviews.controller.js: ', movieId)
             const reviewResponse = await ReviewsDAO.addReview(
                 movieId,
                 user,
