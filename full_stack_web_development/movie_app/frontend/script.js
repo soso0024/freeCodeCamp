@@ -35,7 +35,7 @@ function returnMovie(url) {
             //     title.innerHTML = `${element.title}<br><a href="./movie.html?id=${element.id} &title=${element.title}">reviews</a>`;
             // }
 
-            title.innerHTML = `${element.title}<br><a href="./movie.html?id=${element.id} &title=${element.title}">reviews</a>`;
+            title.innerHTML = `${element.title}<br><a href="movie.html?id=${element.id} &title=${element.title}">reviews</a>`;
 
             // console.log(element.title);
             img.src = IMG_PATH + element.poster_path;

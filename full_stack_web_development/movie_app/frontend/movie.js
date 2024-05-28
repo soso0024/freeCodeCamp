@@ -2,8 +2,8 @@ const url = new URL(location.href);
 const movieId = url.searchParams.get("id")
 const movieTitle = url.searchParams.get("title")
 
-// const APILINK = 'http://localhost:3000/api/v1/reviews/';
-const APILINK = 'https://fb3a-46-193-66-139.ngrok-free.app/api/v1/reviews/';
+const APILINK = 'http://localhost:3000/api/v1/reviews/';
+// const APILINK = 'https://fb3a-46-193-66-139.ngrok-free.app/api/v1/reviews/';
 
 const main = document.getElementById("section");
 const title = document.getElementById("title");
