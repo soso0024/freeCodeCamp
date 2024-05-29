@@ -4,7 +4,14 @@ import reviews from "./api/reviews.route.js"
 
 const app = express()   // Create an Express application
 
-app.use(cors()) // Enable CORS
+app.use(
+    cors(
+        {
+            origin: "https://stunning-fish-active.ngrok-free.app"
+        }
+    )
+) // Enable CORS
+
 app.use(express.json()) // Parse incoming requests with JSON payloads
 
 // for debugging
