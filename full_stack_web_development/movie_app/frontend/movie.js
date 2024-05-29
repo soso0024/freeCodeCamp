@@ -6,7 +6,7 @@ console.log("movieId in movie.js: " + movieId); // for debugging
 console.log("movieTitle in movie.js: " + movieTitle); // for debugging
 
 // const APILINK = 'http://localhost:3000/api/v1/reviews/';
-const APILINK = 'https://19b5-46-193-66-139.ngrok-free.app/api/v1/reviews/';
+const APILINK = 'https://stunning-fish-active.ngrok-free.app/api/v1/reviews/';
 
 const main = document.getElementById("section");
 const title = document.getElementById("title");
