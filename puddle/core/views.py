@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from item.models import Category, Item
 
+from .forms import SingnupForm
+
 
 # Create your views here.
 def index(request):
@@ -15,8 +17,14 @@ def index(request):
             "categories": categories,
             "items": items,
         },
-    )  # This is the view that will be rendered when the user visits the site. It will render the index.html file in the core directory. This file will be created in the next step.
+    )  # This is the view that will be rendered when the user visits the site. It will render the index.html file in the core directory.
 
 
 def contact(request):
     return render(request, "core/contact.html")
+
+
+def signup(request):
+    form = SingnupForm()
+
+    return render(request, "core/signup.html", {"form": form})
