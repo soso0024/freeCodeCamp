@@ -5,6 +5,20 @@ from .forms import NewItemForm, EditItemForm
 from .models import Item
 
 
+def items(request):
+    query = request.GET.get("query", "")  # default return value is blanket
+    items = Item.objects.filter(is_sold=False)
+
+    return render(
+        request,
+        "item/items.html",
+        {
+            "items": items,
+            "query": query,
+        },
+    )
+
+
 # Create your views here.
 def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
