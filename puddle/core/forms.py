@@ -23,7 +23,7 @@ class LoginFrom(AuthenticationForm):
     )
 
 
-class SingnupForm(UserCreationForm):
+class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
